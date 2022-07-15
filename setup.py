@@ -17,7 +17,7 @@ setup(
     url='https://github.com/boppreh/mouse',
     license='MIT',
     description='Hook and simulate mouse events on Windows and Linux',
-    keywords = 'mouse hook simulate hotkey',
+    keywords='mouse hook simulate hotkey',
 
     # Wheel creation breaks with Windows newlines.
     # https://github.com/pypa/setuptools/issues/1126
