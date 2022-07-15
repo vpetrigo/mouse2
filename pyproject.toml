@@ -1,0 +1,24 @@
+[project]
+name = "mouse2"
+description = "Enhanced version of mouse"
+authors = [
+    {name = "Vladimir Petrigo", email = "vladimir.petrigo@gmail.com"},
+]
+dependencies = [
+    "pyobjc-framework-Quartz==8.5; sys_platform == \"darwin\""
+]
+requires-python = ">=3.7"
+readme = "README.md"
+license = { text = "MIT" }
+keywords = ["mouse", "hook", "simulate", "hotkey"]
+dynamic = ["version"]
+
+[project.urls]
+repository = "https://github.com/vpetrigo/mouse2"
+
+[tool.pdm]
+version = { source = "scm" }
+
+[build-system]
+requires = ["pdm-pep517>=1.0.0"]
+build-backend = "pdm.pep517.api"
