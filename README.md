@@ -15,9 +15,12 @@ _Huge thanks to [Kirill Pavlov](http://kirillpavlov.com/) for donating the packa
 - **Pure Python**, no C modules to be compiled.
 - **Zero dependencies** on Windows and Linux. Trivial to install and deploy, just copy the files.
 - **Python 2 and 3**.
-- Includes **high level API** (e.g. [record](#mouse.record) and [play](#mouse.play).
+- Includes **high level API** (e.g. [record] and [play]).
 - Events automatically captured in separate thread, doesn't block main program.
 - Tested and documented.
+
+[record]: #mouse.record
+[play]: #mouse.play
 
 This program makes no attempt to hide itself, so don't use it for keyloggers.
 
@@ -80,35 +83,35 @@ Then check the [API docs](https://github.com/boppreh/mouse#api) to see what feat
 - [mouse.**play**](#mouse.play) *(aliases: `replay`)*
 
 
-<a name="mouse.ButtonEvent"/>
+<a id="mouse.ButtonEvent"/>
 
 ## class mouse.**ButtonEvent**
 
 ButtonEvent(event_type, button, time)
 
 
-<a name="ButtonEvent.button"/>
+<a id="ButtonEvent.button"></a>
 
 ### ButtonEvent.**button**
 
 Alias for field number 1
 
 
-<a name="ButtonEvent.count"/>
+<a id="ButtonEvent.count"></a>
 
 ### ButtonEvent.**count**(self, value, /)
 
 Return number of occurrences of value.
 
 
-<a name="ButtonEvent.event_type"/>
+<a id="ButtonEvent.event_type"></a>
 
 ### ButtonEvent.**event\_type**
 
 Alias for field number 0
 
 
-<a name="ButtonEvent.index"/>
+<a id="ButtonEvent.index"></id>
 
 ### ButtonEvent.**index**(self, value, start=0, stop=9223372036854775807, /)
 
@@ -117,7 +120,7 @@ Return first index of value.
 Raises ValueError if the value is not present.
 
 
-<a name="ButtonEvent.time"/>
+<a id="ButtonEvent.time"></a>
 
 ### ButtonEvent.**time**
 
@@ -126,49 +129,49 @@ Alias for field number 2
 
 
 
-<a name="mouse.DOUBLE"/>
+<a id="mouse.DOUBLE"></a>
 
 ## mouse.**DOUBLE**
 ```py
 = 'double'
 ```
 
-<a name="mouse.DOWN"/>
+<a id="mouse.DOWN"></a>
 
 ## mouse.**DOWN**
 ```py
 = 'down'
 ```
 
-<a name="mouse.LEFT"/>
+<a id="mouse.LEFT"></a>
 
 ## mouse.**LEFT**
 ```py
 = 'left'
 ```
 
-<a name="mouse.MIDDLE"/>
+<a id="mouse.MIDDLE"></a>
 
 ## mouse.**MIDDLE**
 ```py
 = 'middle'
 ```
 
-<a name="mouse.MoveEvent"/>
+<a id="mouse.MoveEvent"></a>
 
 ## class mouse.**MoveEvent**
 
 MoveEvent(x, y, time)
 
 
-<a name="MoveEvent.count"/>
+<a id="MoveEvent.count"></a>
 
 ### MoveEvent.**count**(self, value, /)
 
 Return number of occurrences of value.
 
 
-<a name="MoveEvent.index"/>
+<a id="MoveEvent.index"></a>
 
 ### MoveEvent.**index**(self, value, start=0, stop=9223372036854775807, /)
 
@@ -177,21 +180,21 @@ Return first index of value.
 Raises ValueError if the value is not present.
 
 
-<a name="MoveEvent.time"/>
+<a id="MoveEvent.time"></a>
 
 ### MoveEvent.**time**
 
 Alias for field number 2
 
 
-<a name="MoveEvent.x"/>
+<a id="MoveEvent.x"></a>
 
 ### MoveEvent.**x**
 
 Alias for field number 0
 
 
-<a name="MoveEvent.y"/>
+<a id="MoveEvent.y"></a>
 
 ### MoveEvent.**y**
 
@@ -200,42 +203,42 @@ Alias for field number 1
 
 
 
-<a name="mouse.RIGHT"/>
+<a id="mouse.RIGHT"></a>
 
 ## mouse.**RIGHT**
 ```py
 = 'right'
 ```
 
-<a name="mouse.UP"/>
+<a id="mouse.UP"></a>
 
 ## mouse.**UP**
 ```py
 = 'up'
 ```
 
-<a name="mouse.WheelEvent"/>
+<a id="mouse.WheelEvent"></a>
 
 ## class mouse.**WheelEvent**
 
 WheelEvent(delta, time)
 
 
-<a name="WheelEvent.count"/>
+<a id="WheelEvent.count"></a>
 
 ### WheelEvent.**count**(self, value, /)
 
 Return number of occurrences of value.
 
 
-<a name="WheelEvent.delta"/>
+<a id="WheelEvent.delta"></a>
 
 ### WheelEvent.**delta**
 
 Alias for field number 0
 
 
-<a name="WheelEvent.index"/>
+<a id="WheelEvent.index"></a>
 
 ### WheelEvent.**index**(self, value, start=0, stop=9223372036854775807, /)
 
@@ -244,7 +247,7 @@ Return first index of value.
 Raises ValueError if the value is not present.
 
 
-<a name="WheelEvent.time"/>
+<a id="WheelEvent.time"></a>
 
 ### WheelEvent.**time**
 
@@ -253,28 +256,28 @@ Alias for field number 1
 
 
 
-<a name="mouse.X"/>
+<a id="mouse.X"></a>
 
 ## mouse.**X**
 ```py
 = 'x'
 ```
 
-<a name="mouse.X2"/>
+<a id="mouse.X2"></a>
 
 ## mouse.**X2**
 ```py
 = 'x2'
 ```
 
-<a name="mouse.version"/>
+<a id="mouse.version"></a>
 
 ## mouse.**version**
 ```py
 = '0.7.1'
 ```
 
-<a name="mouse.is_pressed"/>
+<a id="mouse.is_pressed"></a>
 
 ## mouse.**is\_pressed**(button=&#x27;left&#x27;)
 
@@ -283,7 +286,7 @@ Alias for field number 1
 Returns True if the given button is currently pressed.
 
 
-<a name="mouse.press"/>
+<a id="mouse.press"></a>
 
 ## mouse.**press**(button=&#x27;left&#x27;)
 
@@ -292,7 +295,7 @@ Returns True if the given button is currently pressed.
 Presses the given button (but doesn't release).
 
 
-<a name="mouse.release"/>
+<a id="mouse.release"></a>
 
 ## mouse.**release**(button=&#x27;left&#x27;)
 
@@ -301,7 +304,7 @@ Presses the given button (but doesn't release).
 Releases the given button.
 
 
-<a name="mouse.click"/>
+<a id="mouse.click"></a>
 
 ## mouse.**click**(button=&#x27;left&#x27;)
 
@@ -310,7 +313,7 @@ Releases the given button.
 Sends a click with the given button.
 
 
-<a name="mouse.double_click"/>
+<a id="mouse.double_click"></a>
 
 ## mouse.**double\_click**(button=&#x27;left&#x27;)
 
@@ -319,7 +322,7 @@ Sends a click with the given button.
 Sends a double click with the given button.
 
 
-<a name="mouse.right_click"/>
+<a id="mouse.right_click"></a>
 
 ## mouse.**right\_click**()
 
@@ -328,7 +331,7 @@ Sends a double click with the given button.
 Sends a right click with the given button.
 
 
-<a name="mouse.wheel"/>
+<a id="mouse.wheel"></a>
 
 ## mouse.**wheel**(delta=1)
 
@@ -337,7 +340,7 @@ Sends a right click with the given button.
 Scrolls the wheel `delta` clicks. Sign indicates direction.
 
 
-<a name="mouse.move"/>
+<a id="mouse.move"></a>
 
 ## mouse.**move**(x, y, absolute=True, duration=0, steps_per_second=120.0)
 
@@ -349,7 +352,7 @@ to the current position. If `duration` is non-zero, animates the movement.
 The fps of the animation is determined by 'steps_per_second', default is 120.
 
 
-<a name="mouse.drag"/>
+<a id="mouse.drag"></a>
 
 ## mouse.**drag**(start\_x, start\_y, end\_x, end\_y, absolute=True, duration=0)
 
@@ -362,7 +365,7 @@ movement.
 
 
 
-<a name="mouse.on_button"/>
+<a id="mouse.on_button"></a>
 
 ## mouse.**on\_button**(callback, args=(), buttons=(&#x27;left&#x27;, &#x27;middle&#x27;, &#x27;right&#x27;, &#x27;x&#x27;, &#x27;x2&#x27;), types=(&#x27;up&#x27;, &#x27;down&#x27;, &#x27;double&#x27;))
 
@@ -371,7 +374,7 @@ movement.
 Invokes `callback` with `args` when the specified event happens.
 
 
-<a name="mouse.on_click"/>
+<a id="mouse.on_click"></a>
 
 ## mouse.**on\_click**(callback, args=())
 
@@ -380,7 +383,7 @@ Invokes `callback` with `args` when the specified event happens.
 Invokes `callback` with `args` when the left button is clicked.
 
 
-<a name="mouse.on_double_click"/>
+<a id="mouse.on_double_click"></a>
 
 ## mouse.**on\_double\_click**(callback, args=())
 
@@ -391,7 +394,7 @@ Invokes `callback` with `args` when the left button is double clicked.
 
 
 
-<a name="mouse.on_right_click"/>
+<a id="mouse.on_right_click"></a>
 
 ## mouse.**on\_right\_click**(callback, args=())
 
@@ -400,7 +403,7 @@ Invokes `callback` with `args` when the left button is double clicked.
 Invokes `callback` with `args` when the right button is clicked.
 
 
-<a name="mouse.on_middle_click"/>
+<a id="mouse.on_middle_click"></a>
 
 ## mouse.**on\_middle\_click**(callback, args=())
 
@@ -409,7 +412,7 @@ Invokes `callback` with `args` when the right button is clicked.
 Invokes `callback` with `args` when the middle button is clicked.
 
 
-<a name="mouse.wait"/>
+<a id="mouse.wait"></a>
 
 ## mouse.**wait**(button=&#x27;left&#x27;, target\_types=(&#x27;up&#x27;, &#x27;down&#x27;, &#x27;double&#x27;))
 
@@ -420,7 +423,7 @@ Blocks program execution until the given button performs an event.
 
 
 
-<a name="mouse.get_position"/>
+<a id="mouse.get_position"></a>
 
 ## mouse.**get\_position**()
 
@@ -429,7 +432,7 @@ Blocks program execution until the given button performs an event.
 Returns the (x, y) mouse position.
 
 
-<a name="mouse.hook"/>
+<a id="mouse.hook"></a>
 
 ## mouse.**hook**(callback)
 
@@ -445,7 +448,7 @@ Returns the given callback for easier development.
 
 
 
-<a name="mouse.unhook"/>
+<a id="mouse.unhook"></a>
 
 ## mouse.**unhook**(callback)
 
@@ -456,7 +459,7 @@ Removes a previously installed hook.
 
 
 
-<a name="mouse.unhook_all"/>
+<a id="mouse.unhook_all"></a>
 
 ## mouse.**unhook\_all**()
 
@@ -468,7 +471,7 @@ hooks installed by high level functions, such as [`record`](#mouse.record).
 
 
 
-<a name="mouse.record"/>
+<a id="mouse.record"></a>
 
 ## mouse.**record**(button=&#x27;right&#x27;, target\_types=(&#x27;down&#x27;,))
 
@@ -483,7 +486,7 @@ Note: for more details on the mouse hook and events see [`hook`](#mouse.hook).
 
 
 
-<a name="mouse.play"/>
+<a id="mouse.play"></a>
 
 ## mouse.**play**(events, speed\_factor=1.0, include\_clicks=True, include\_moves=True, include\_wheel=True)
 
