@@ -35,7 +35,7 @@ x11 = None
 
 def build_display():
     global display, window, x11
-    if display and window and x11:
+    if x11:
         return
     x11 = ctypes.cdll.LoadLibrary(ctypes.util.find_library("X11"))
     # Required because we will have multiple threads calling x11,
@@ -44,12 +44,21 @@ def build_display():
     # Explicitly set XOpenDisplay.restype to avoid segfault on 64 bit OS.
     # http://stackoverflow.com/questions/35137007/get-mouse-position-on-linux-pure-python
     x11.XOpenDisplay.restype = c_void_p
-    display = c_void_p(x11.XOpenDisplay(0))
+    open_display = x11.XOpenDisplay(0)
+
+    if open_display is None:
+        return
+
+    display = c_void_p(open_display)
     window = x11.XDefaultRootWindow(display)
 
 
 def get_position():
     build_display()
+
+    if display is None:
+        return -1, -1
+
     root_id, child_id = c_void_p(), c_void_p()
     root_x, root_y, win_x, win_y = c_int(), c_int(), c_int(), c_int()
     mask = c_uint()
@@ -64,11 +73,16 @@ def get_position():
         byref(win_y),
         byref(mask),
     )
+
     return root_x.value, root_y.value
 
 
 def move_to(x, y):
     build_display()
+
+    if display is None:
+        raise ValueError("Unable to move as no display available")
+
     x11.XWarpPointer(display, None, window, 0, 0, 0, 0, x, y)
     x11.XFlush(display)
 
