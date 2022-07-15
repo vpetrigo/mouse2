@@ -161,6 +161,19 @@ def list_devices_from_by_id(type_name):
 
 
 def aggregate_devices(type_name):
+    # We don't aggregate devices from different sources to avoid
+    # duplicates.
+
+    devices_from_proc = list(list_devices_from_proc(type_name))
+    if devices_from_proc:
+        return AggregatedEventDevice(devices_from_proc)
+
+    # breaks on mouse for virtualbox
+    # was getting /dev/input/by-id/usb-VirtualBox_USB_Tablet-event-mouse
+    devices_from_by_id = list(list_devices_from_by_id(type_name))
+    if devices_from_by_id:
+        return AggregatedEventDevice(devices_from_by_id)
+
     # Some systems have multiple keyboards with different range of allowed keys
     # on each one, like a notebook with a "keyboard" device exclusive for the
     # power button. Instead of figuring out which keyboard allows which key to
@@ -169,19 +182,6 @@ def aggregate_devices(type_name):
     fake_device = EventDevice("uinput Fake Device")
     fake_device._input_file = uinput
     fake_device._output_file = uinput
-
-    # We don't aggregate devices from different sources to avoid
-    # duplicates.
-
-    devices_from_proc = list(list_devices_from_proc(type_name))
-    if devices_from_proc:
-        return AggregatedEventDevice(devices_from_proc, output=fake_device)
-
-    # breaks on mouse for virtualbox
-    # was getting /dev/input/by-id/usb-VirtualBox_USB_Tablet-event-mouse
-    devices_from_by_id = list(list_devices_from_by_id(type_name))
-    if devices_from_by_id:
-        return AggregatedEventDevice(devices_from_by_id, output=fake_device)
 
     # If no keyboards were found we can only use the fake device to send keys.
     return fake_device
